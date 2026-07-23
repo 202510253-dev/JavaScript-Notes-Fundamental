@@ -1,0 +1,18 @@
+What Actually Happens Without Internet
+Depends on where in the flow the connection drops:
+If you lose internet before the page loads:
+Browser shows "No internet connection" or a blank page. Nothing from your server ever arrives. The user sees whatever the browser's offline error page looks like.
+If you lose internet after the page already loaded:
+The HTML, CSS, and JS that already downloaded still render. So the shell of the page looks fine. But the moment any fetch() call fires — to load notes, to filter, to check login status — it either hangs or returns a network error. Your Vanilla JS needs to catch that and show the user something honest like "You're offline. Please reconnect to continue."
+If you lose internet mid-action (e.g. during file upload):
+The upload fails partway. Multer receives an incomplete file. You need error handling that catches this and tells the user to try again — and you need to make sure incomplete files don't get saved to Supabase Storage as broken records.
+
+Does This Mean Offline Is Impossible?
+For a full notes platform — yes, practically speaking, offline is not a realistic goal for your hackathon scope or even your v1.
+There is a technology called Progressive Web App (PWA) with Service Workers that can cache certain things — static pages, previously loaded notes — so some content survives without internet. But:
+
+It only works for content already cached before going offline
+Uploads, new fetches, login, and any write operation still require internet
+Service Workers are a non-trivial addition to your stack — not BSIT-1 first hackathon territory
+
+For OlongNotes at your current stage: treat internet as a hard requirement, handle the offline case gracefully in the UI, and document it honestly.
