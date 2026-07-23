@@ -1,0 +1,76 @@
+.slider {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slider img {
+    width: 100%;
+    display: none;
+}
+
+/* This rule now has HIGHER specificity than the one above (ID + tag + class), so it wins! */
+img.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5%;
+    /* Only show the one with this class */
+}
+
+.text {
+    color: #000000;
+    font-size: 40px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    margin: -15px;
+    background-color: rgba(160, 160, 157, 0.87);
+    border-radius: 100%;
+    width: 100%;
+    border: none;
+    padding: 10px 15px;
+}
+
+.slider .text {
+    width: 100%;
+    display: none;
+}
+
+.text.displaySlide {
+    display: block;
+    animation-name: fade;
+    animation-duration: 1.5%;
+}
+
+.slider button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    padding: 10px 15px;
+    background-color: hsla(0, 0%, 0%, 0.5);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+@keyframes fade {
+    from {
+        opacity: .5
+    }
+
+    to {
+        opacity: 1
+    }
+}

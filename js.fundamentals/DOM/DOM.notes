@@ -1,0 +1,64 @@
+The Core Mental Model: The DOM Tree
+
+When a browser loads your HTML, it converts every single tag into a JavaScript object. 
+These objects are arranged in a family tree (Parent, Child, and Sibling nodes).
+
+// DOM HIERARCHY NOTE:
+// window -> The browser window (the absolute king global object)
+// window.document -> The actual HTML page loaded inside the window
+// document.body -> The body element holding all your visual tags
+
+
+
+Essential Methods to Include (The "Big Four" Selectors)
+
+In practical coding, document.getElementById is great, but you need to know the other ways developers grab elements from a page.
+
+// ----------- 1. Selecting Elements -----------
+
+// Grab by ID (Fastest, returns ONE element)
+const header = document.getElementById("main-header");
+
+// Grab by Class Name (Returns a live collection of ALL matching elements)
+const buttons = document.getElementsByClassName("btn");
+
+// Grab by Tag Name (Returns ALL paragraphs, divs, etc.)
+const paragraphs = document.getElementsByTagName("p");
+
+// The Modern Standard: querySelector & querySelectorAll
+// These let you use CSS selectors! Super common in modern code.
+const activeItem = document.querySelector(".menu-item.active"); // First match
+const allCards = document.querySelectorAll(".card"); // All matches (Returns a NodeList)
+
+
+
+Modifying Elements (Beyond .textContent)
+
+.textContent to change text. But what if you want to change colors or insert actual HTML tags?
+
+// ----------- 2. Modifying Elements -----------
+
+const box = document.getElementById("box");
+
+// Changing Text (Safe: treats input purely as text)
+box.textContent = "Hello World";
+
+// Changing HTML (Powerful but dangerous if user input is involved - XSS attacks)
+box.innerHTML = "<strong>Hello World</strong>";
+
+// Changing Styles inline (CSS via JavaScript)
+box.style.backgroundColor = "lightblue";
+box.style.borderRadius = "8px";
+
+
+
+Crucial Practical Warning: The Script Placement Trap
+
+/* ⚠️ FUTURE ME WARNING: THE LOADING TRAP 
+If your JavaScript file runs BEFORE the browser finishes reading the HTML body, 
+document.getElementById() will return 'null' and crash your code!
+
+Fix it in HTML by always putting the 'defer' attribute in your script tag:
+<script src="index.js" defer></script>
+(defer tells the browser: "Download the JS, but don't run it until the HTML is fully parsed!")
+*/
