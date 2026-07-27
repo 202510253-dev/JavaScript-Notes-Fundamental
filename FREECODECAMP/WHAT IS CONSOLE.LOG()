@@ -1,0 +1,19 @@
+What Is console.log Used For, and How Does It Work?
+ 
+console.log() = A tool used to display messages or output information to the browser's console.
+                It mostly used by developers to debug and inspec code while working on their programs (TRIAL AND ERROR CHECKER)
+
+BASIC SYSNTAX
+
+console.log("Hello, world!");
+
+let num = 5;
+console.log(num); // 5
+
+The console.log() method helps you monitor your code as it runs, making it easier to spot mistakes and understand how your program behaves.
+
+What does the console.log() method do in JavaScript?
+--> It is used to log data and display the output in the browser console.
+
+Why is console.log() helpful when building out web applications?
+--> It is commonly used by developers for debugging and inspecting values or expressions in their code during development.
