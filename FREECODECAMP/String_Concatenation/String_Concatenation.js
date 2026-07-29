@@ -39,3 +39,8 @@ let str2 = 'Wonderworld'
 
 let result = str1.concat(' ', str2)
 console.log(result)
+
+string1 = "random"
+string2 = "Absolute"
+
+console.log(strin)

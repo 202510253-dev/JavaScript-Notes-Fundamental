@@ -43,3 +43,38 @@ person1.sayHello();
 person2.sayHello();
 person2.eat();
 person2.sayBye();
+
+const tank1 = {
+    name: "A1 M1 Abrmas",
+    country: "USA",
+    year: 2003,
+    status: "In Combat",
+    tankFire: function () {console.log("Boom!")},
+    tankAdvance: () => console.log("Hurry Up!, Advance"),
+}
+
+const tank2 = {
+    name: "Leopard 2",
+    country: "Germany",
+    year: 2008,
+    status: "In Combat",
+    tankFire: function () {console.log("Fire!")},
+    tankAdvance: () => console.log("Manuever That Tank!"),
+}
+
+console.log(tank1.name)
+console.log(tank1.country)
+console.log(tank1.year)
+console.log(tank1.status)
+
+console.log(tank2.name)
+console.log(tank2.country)
+console.log(tank2.year)
+console.log(tank2.status)
+
+tank1.tankFire()
+tank2.tankFire()
+
+tank1.tankAdvance()
+tank2.tankAdvance()
+
