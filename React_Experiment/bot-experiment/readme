@@ -1,0 +1,22 @@
+cd C:\Users\Opriasa\Desktop\JavaScript\React_Experiment\bot-experiment
+npm run dev 
+
+
+this is to open it
+
+## Killing a stuck server (Windows PowerShell)
+
+If `node server.js` is still running in the background (e.g. you closed
+the terminal without Ctrl+C) and port 3001 is stuck "in use":
+
+1. Find the process using the port:
+```powershell
+   netstat -ano | findstr :3001
+```
+2. Copy the PID number from the last column of the output.
+3. Kill it:
+```powershell
+   taskkill /PID <paste_the_number_here> /F
+```
+
+Swap `3001` for `5173`/`5174`/etc. if it's the Vite dev server that's stuck instead.

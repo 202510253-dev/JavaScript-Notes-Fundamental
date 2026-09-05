@@ -1,0 +1,28 @@
+.app { max-width: 480px; margin: 0 auto; font-family: sans-serif; }
+
+/* CRT face sits above the mode UI, transparent bg so it floats on the desktop */
+.crt-face {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0;
+  background: transparent;
+  /* line-height: 0 keeps the wrapper from adding extra vertical space
+     below the canvas (flex children baseline alignment can leave a gap) */
+  line-height: 0;
+}
+.crt-face canvas {
+  display: block;
+  /* pointer-events: none so it never blocks clicks on the chat input below */
+  pointer-events: none;
+}
+.chat-window { display: flex; flex-direction: column; height: 100vh; }
+.messages { flex: 1; overflow-y: auto; padding: 1rem; }
+.bubble { padding: 0.5rem 1rem; margin: 0.4rem 0; border-radius: 1rem; max-width: 75%; }
+.bubble.user { background: #4f46e5; color: white; margin-left: auto; }
+.bubble.bot { background: #e5e7eb; }
+.input-row { display: flex; padding: 1rem; gap: 0.5rem; }
+.input-row input { flex: 1; padding: 0.5rem; border-radius: 0.5rem; border: 1px solid #ccc; }
+.now-playing { display: flex; flex-direction: column; align-items: center; padding: 2rem; height: 100vh; justify-content: center; }
+.lyric-display { font-size: 1.5rem; text-align: center; min-height: 3rem; margin: 2rem 0; }
+.exit-btn { position: absolute; top: 1rem; left: 1rem; background: none; border: none; cursor: pointer; }
